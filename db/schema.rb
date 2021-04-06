@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_175331) do
+ActiveRecord::Schema.define(version: 2021_04_06_195410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(version: 2021_04_05_175331) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tranactions", force: :cascade do |t|
-    t.bigint "invoice_id"
-    t.bigint "credit_card_number"
-    t.date "credit_card_expiration_date"
-    t.integer "result"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["invoice_id"], name: "index_tranactions_on_invoice_id"
-  end
-
   create_table "transactions", force: :cascade do |t|
     t.bigint "invoice_id"
     t.string "credit_card_number"
@@ -81,5 +71,4 @@ ActiveRecord::Schema.define(version: 2021_04_05_175331) do
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "merchants"
   add_foreign_key "items", "merchants"
-  add_foreign_key "tranactions", "invoices"
 end
