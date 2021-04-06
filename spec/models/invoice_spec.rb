@@ -7,4 +7,8 @@ RSpec.describe Invoice, type: :model do
       it { should have_many(:invoice_items).dependent(:destroy) }
       it { should have_many(:transactions).dependent(:destroy) }
   end
+
+  describe "validations" do
+    it { should define_enum_for(:status).with_values([:packaged, :shipped, :returned])}
+  end
 end
