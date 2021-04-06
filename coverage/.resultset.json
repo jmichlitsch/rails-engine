@@ -55,8 +55,23 @@
           1,
           null
         ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1617742889
+    "timestamp": 1617743378
   }
 }

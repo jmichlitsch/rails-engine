@@ -17,7 +17,7 @@ RSpec.describe "Merchants API" do
         expect(merchant).to be_a(Hash)
         check_structure(merchant, :id, Integer)
         check_structure(merchant, :name, String)
-        expect(merchant.keys).to match_array(%i[id name])
+        expect(merchant.keys).to match_array(%i[id name created_at updated_at])
       end
     end
   end
