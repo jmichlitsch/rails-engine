@@ -155,6 +155,8 @@ GEM
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
     ruby_dep (1.5.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -195,6 +197,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.5)
   rspec-rails
+  shoulda-matchers
   simplecov
   tzinfo-data
 
