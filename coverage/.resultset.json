@@ -69,6 +69,34 @@
           null
         ]
       },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          2,
+          null,
+          0,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/item_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
@@ -84,12 +112,6 @@
           null
         ]
       },
-      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/merchant_serializer.rb": {
         "lines": [
           1,
@@ -99,6 +121,6 @@
         ]
       }
     },
-    "timestamp": 1617819773
+    "timestamp": 1617821160
   }
 }
