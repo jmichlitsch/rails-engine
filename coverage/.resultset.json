@@ -17,6 +17,12 @@
           null,
           1,
           null,
+          null,
+          1,
+          9,
+          9,
+          9,
+          null,
           null
         ]
       },
@@ -44,10 +50,6 @@
           1,
           1,
           1,
-          1,
-          9,
-          9,
-          9,
           null,
           null
         ]
@@ -72,6 +74,7 @@
           1,
           1,
           8,
+          8,
           null,
           null
         ]
@@ -81,8 +84,16 @@
           1,
           null
         ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1617817447
+    "timestamp": 1617818925
   }
 }

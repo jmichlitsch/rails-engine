@@ -6,13 +6,13 @@ RSpec.describe Merchant, type: :model do
    it { should have_many(:invoice_items).through(:items) }
  end
  describe 'class methods' do
-   describe '.select_merchants' do
-     it 'gets the first 20 merchants by default' do
-       create_list(:merchant, 21)
+   describe '.select_records' do
+    it 'gets the first 20 merchants by default' do
+      create_list(:merchant, 21)
 
-       selected = Merchant.select_merchants(nil, nil)
-       expect(selected).to eq(Merchant.first(20))
-     end
+      selected = Merchant.select_records(nil, nil)
+      expect(selected.to_a.size).to eq(20)
+    end
    end
    describe '.find_one_by_name' do
     it 'finds a merchant using a search term' do
