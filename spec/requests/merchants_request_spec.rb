@@ -19,8 +19,8 @@ RSpec.describe "Merchants API" do
         check_structure(merchant, :name, String)
         expect(merchant.keys).to match_array(%i[id name created_at updated_at])
       end
-
-      it 'sends an array of data even if one resource is found' do
+    end
+    it 'sends an array of data even if one resource is found' do
       create(:merchant)
 
       get '/api/v1/merchants'
@@ -46,16 +46,16 @@ RSpec.describe "Merchants API" do
 
     describe 'allows for optional per_page query param' do
       it 'users can request less than the total number of merchants' do
-        create_list(:merchant, 19)
+        create_list(:merchant, 3)
 
-        get '/api/v1/merchants?per_page=5'
+        get '/api/v1/merchants?per_page=2'
 
         expect(response).to be_successful
 
         merchants = JSON.parse(response.body, symbolize_names: true)
 
-        expect(merchants.count).to eq(5)
-        expect(merchants.pluck(:id)).to match_array(Merchant.first(5.pluck(:id))
+        expect(merchants.count).to eq(2)
+        expect(merchants.pluck(:id)).to match_array(Merchant.first(2).pluck(:id))
       end
 
       it 'users can request more than the total number of merchants' do
@@ -92,15 +92,14 @@ RSpec.describe "Merchants API" do
     it 'allows the user to pass both per_page and page query params' do
       create_list(:merchant, 10)
 
-      get '/api/v1/merchants?per_page=3&page=3'
+      get '/api/v1/merchants?per_page=5&page=2'
 
       expect(response).to be_successful
 
       merchants = JSON.parse(response.body, symbolize_names: true)
 
-      expect(merchants.count).to eq(3)
-      expect(merchants.pluck(:id)).to eq(Merchant.last(3).pluck(:id))
-    end
+      expect(merchants.count).to eq(5)
+      expect(merchants.pluck(:id)).to eq(Merchant.last(5).pluck(:id))
     end
   end
 end
