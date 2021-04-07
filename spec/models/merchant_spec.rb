@@ -14,5 +14,13 @@ RSpec.describe Merchant, type: :model do
        expect(selected).to eq(Merchant.first(20))
      end
    end
+   describe '.find_one_by_name' do
+    it 'finds a merchant using a search term' do
+      merchant = create(:merchant, name: "Ring World")
+      create(:merchant, name: "Bob's Burgers")
+
+      expect(Merchant.find_one_by_name('ring')).to eq(merchant)
+    end
+  end
  end
 end
