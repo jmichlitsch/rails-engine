@@ -78,6 +78,20 @@
           null
         ]
       },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/error_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/models/invoice_item.rb": {
         "lines": [
           1,
@@ -129,20 +143,20 @@
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          0,
           null,
           null
         ]
@@ -189,6 +203,6 @@
         ]
       }
     },
-    "timestamp": 1617850186
+    "timestamp": 1617850878
   }
 }
