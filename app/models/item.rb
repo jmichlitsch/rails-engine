@@ -17,9 +17,9 @@ class Item < ApplicationRecord
     where('unit_price BETWEEN ? AND ?', (min_price || 0), (max_price || Float::INFINITY))
   end
   def self.select_items_by_revenue(quantity)
-    joins(:invoices)
-      .merge(Invoice.completed)
-      .select('items.*, SUM(quantity * invoice_items.unit_price) revenue')
+    select('items.*, SUM(quantity * invoice_items.unit_price) AS revenue')
+      .joins(invoices: :transactions)
+      .where(transactions: { result: 'success' }, invoices: {status: 'shipped'} )
       .group(:id)
       .order(revenue: :desc)
       .limit(quantity || 10)
