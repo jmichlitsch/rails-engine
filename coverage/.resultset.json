@@ -13,9 +13,15 @@
           1,
           null,
           1,
-          1,
+          4,
+          null,
+          3,
+          null,
           null,
           1,
+          4,
+          null,
+          3,
           null,
           null,
           1,
@@ -33,6 +39,10 @@
           1,
           1,
           1,
+          null,
+          1,
+          2,
+          null,
           null
         ]
       },
@@ -42,6 +52,13 @@
           1,
           1,
           1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
           null
         ]
       },
@@ -98,6 +115,10 @@
           null,
           null,
           1,
+          2,
+          null,
+          null,
+          1,
           null,
           1,
           3,
@@ -108,6 +129,21 @@
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -131,6 +167,16 @@
           1,
           1,
           null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          4,
+          4,
+          null,
           null
         ]
       },
@@ -143,6 +189,6 @@
         ]
       }
     },
-    "timestamp": 1617825607
+    "timestamp": 1617850186
   }
 }
