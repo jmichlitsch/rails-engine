@@ -27,7 +27,31 @@ class Api::V1::ItemsController < ApplicationController
   def destroy
     Item.find(params[:id]).destroy
   end
-  
+
+  def find
+  if params[:name] && (params[:min_price] || params[:max_price])
+    render_invalid_parameters
+  elsif params[:name]
+    item = Item.find_one_by_name(params[:name])
+    render json: (item ? ItemSerializer.new(item) : { data: {} })
+  else
+    item = Item.find_one_by_price(params[:min_price], params[:max_price])
+    render json: (item ? ItemSerializer.new(item) : { data: {} })
+  end
+end
+
+def find_all
+  if params[:name] && (params[:min_price] || params[:max_price])
+    render_invalid_parameters
+  elsif params[:name]
+    items = Item.find_all_by_name(params[:name])
+    render json: ItemSerializer.new(items)
+  else
+    items = Item.find_all_by_price(params[:min_price], params[:max_price])
+    render json: ItemSerializer.new(items)
+  end
+end
+
   private
 
   def item_params
