@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Merchants API" do
-  describe 'merchants index' do
-    it 'sends a list of 20 merchants' do
+RSpec.describe 'merchants index' do
+  it 'sends a list of 20 merchants' do
     create_list(:merchant, 21)
 
     get '/api/v1/merchants'
@@ -61,7 +60,7 @@ RSpec.describe "Merchants API" do
       merchants = JSON.parse(response.body, symbolize_names: true)
 
       expect(merchants[:data].count).to eq(2)
-  end
+    end
 
     it 'users can request more than the total number of merchants' do
       create_list(:merchant, 2)
@@ -74,36 +73,71 @@ RSpec.describe "Merchants API" do
 
       expect(merchants[:data].count).to eq(2)
     end
+
+    it 'returns an error if the user enters a negative number' do
+      get '/api/v1/merchants?per_page=-2'
+
+      expect(response.status).to eq(400)
+    end
   end
 
-    it 'allows for optional page query param' do
+  it 'allows for optional page query param' do
+    create_list(:merchant, 21)
+
+    get '/api/v1/merchants?page=1'
+
+    expect(response).to be_successful
+
+    page1 = JSON.parse(response.body, symbolize_names: true)
+
+    get '/api/v1/merchants?page=2'
+
+    page2 = JSON.parse(response.body, symbolize_names: true)
+
+    expect(page1[:data].size).to eq(20)
+    expect(page2[:data].size).to eq(1)
+    expect(page1[:data].pluck(:id)).not_to include(page2[:data].pluck(:id))
+  end
+
+  it 'allows the user to pass both per_page and page query params' do
+    create_list(:merchant, 5)
+
+    get '/api/v1/merchants?per_page=3&page=2'
+
+    expect(response).to be_successful
+
+    merchants = JSON.parse(response.body, symbolize_names: true)
+
+    expect(merchants[:data].count).to eq(2)
+  end
+
+  describe 'fetches page 1 if user enters a page less than 1' do
+    it 'if page is 0' do
       create_list(:merchant, 21)
 
-      get '/api/v1/merchants?page=1'
-
-      expect(response).to be_successful
-
-      page1 = JSON.parse(response.body, symbolize_names: true)
-
-      get '/api/v1/merchants?page=2'
-
-      page2 = JSON.parse(response.body, symbolize_names: true)
-
-      expect(page1[:data].size).to eq(20)
-      expect(page2[:data].size).to eq(1)
-      expect(page1[:data].pluck(:id)).not_to include(page2[:data].pluck(:id))
-    end
-
-    it 'allows the user to pass both per_page and page query params' do
-      create_list(:merchant, 5)
-
-      get '/api/v1/merchants?per_page=3&page=2'
+      get '/api/v1/merchants?page=0'
 
       expect(response).to be_successful
 
       merchants = JSON.parse(response.body, symbolize_names: true)
 
-      expect(merchants[:data].count).to eq(2)
+      expect(merchants).to be_a(Hash)
+      check_hash_structure(merchants, :data, Array)
+      expect(merchants[:data].count).to eq(20)
+    end
+
+    it 'if page is less than 1' do
+      create_list(:merchant, 21)
+
+      get '/api/v1/merchants?page=-2'
+
+      expect(response).to be_successful
+
+      merchants = JSON.parse(response.body, symbolize_names: true)
+
+      expect(merchants).to be_a(Hash)
+      check_hash_structure(merchants, :data, Array)
+      expect(merchants[:data].count).to eq(20)
     end
   end
 end
