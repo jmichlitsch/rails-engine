@@ -8,7 +8,6 @@ RSpec.describe InvoiceItem, type: :model do
 
   describe 'class methods' do
     it '.total_revenue_by_date' do
-    #   #complete invoices have a transaction that is successful unless specified otherwise and a revenue of 1.00
       create(:complete_invoice, status: 'shipped', created_at: '2012-03-09')
       create(:complete_invoice, status: 'shipped', created_at: '2012-03-10')
       create(:complete_invoice, status: 'shipped', created_at: '2012-03-11')
