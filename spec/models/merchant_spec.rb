@@ -47,6 +47,46 @@ RSpec.describe Merchant, type: :model do
         expect(merchants[3].revenue).to eq(3)
         expect(merchants[4].revenue).to eq(2)
       end
+
+      it 'can find a different quantity of merchants' do
+        merchants = Merchant.top_merchants(2)
+
+        expect(merchants.to_a.size).to eq(2)
+        expect(merchants[0].revenue).to eq(6)
+        expect(merchants[1].revenue).to eq(5)
+      end
+    end
+    describe '.select_by_item_sales' do
+      before(:each) do
+        8.times do |n|
+          merchant = create(:merchant)
+          (n + 1).times do
+            item = create(:item, merchant: merchant)
+            invoice = create(:invoice, merchant: merchant, status: 'shipped')
+            create(:invoice_item, invoice: invoice, item: item, unit_price: 1.0, quantity: n + 1)
+            create(:transaction, invoice: invoice, result: 'success')
+          end
+        end
+      end
+
+      it 'finds a specified quantity of merchants' do
+        merchants = Merchant.select_by_item_sales(7)
+
+        expect(merchants.to_a.size).to eq(7)
+        expect(merchants[0].sales_count).to eq(64)
+        expect(merchants[1].sales_count).to eq(49)
+        expect(merchants[2].sales_count).to eq(36)
+        expect(merchants[3].sales_count).to eq(25)
+        expect(merchants[4].sales_count).to eq(16)
+        expect(merchants[5].sales_count).to eq(9)
+        expect(merchants[6].sales_count).to eq(4)
+      end
+
+      it 'can find a different quantity of merchants' do
+        merchants = Merchant.select_by_item_sales(3)
+
+        expect(merchants.to_a.size).to eq(3)
+      end
     end
   end
 end
