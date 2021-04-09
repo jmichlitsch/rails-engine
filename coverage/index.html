@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T20:38:11-06:00">2021-04-08T20:38:11-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T20:50:26-06:00">2021-04-08T20:50:26-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  97.58%
+  97.64%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.56
+         2.57
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>124</b> relevant lines,
-    <span class="green"><b>121</b> lines covered</span> and
+    <b>127</b> relevant lines,
+    <span class="green"><b>124</b> lines covered</span> and
     <span class="red"><b>3</b> lines missed. </span>
     (<span class="green">
-  97.58%
+  97.64%
 </span>
 )
   </div>
@@ -132,7 +132,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.42</td>
+            <td class="cell--number">1.58</td>
             
           </tr>
         
@@ -161,11 +161,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#93c0c0f594fe5269f709a32e923e99739566d81b" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">22</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">7</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.29</td>
             
           </tr>
         
@@ -173,10 +173,10 @@
             <td class="strong t-file__name"><a href="#f2eecae94d0510a29b46c7872add887287310f0f" class="src_link" title="app/models/transaction.rb">app/models/transaction.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">5</td>
-            <td class="cell--number">2</td>
-            <td class="cell--number">2</td>
+            <td class="cell--number">3</td>
+            <td class="cell--number">3</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.67</td>
             
           </tr>
         
@@ -1853,8 +1853,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="7">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="7">
+            <span class="hits">3</span>
             
 
             
@@ -2527,8 +2527,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>7</b> relevant lines.
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -2650,8 +2650,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="11">
+            <span class="hits">2</span>
             
 
             
@@ -2673,6 +2673,105 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def self.select_by_item_sales(quantity)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby">    select(&#39;merchants.*, SUM(quantity) sales_count&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby">      .joins(items: { invoice_items: :invoice })</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">      .merge(Invoice.completed)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">      .group(:id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">      .order(sales_count: :desc)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="20">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      .limit(quantity)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -2701,8 +2800,8 @@
     
 
     <div class="t-line-summary">
-      <b>2</b> relevant lines.
-      <span class="green"><b>2</b> lines covered</span> and
+      <b>3</b> relevant lines.
+      <span class="green"><b>3</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -2747,13 +2846,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="4">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="4">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">  # scope :successful, -&gt; { where(result: :success) }</code>
+            
+
+            <code class="ruby">  scope :successful, -&gt; { where(result: :success) }</code>
           </li>
         </div>
       
