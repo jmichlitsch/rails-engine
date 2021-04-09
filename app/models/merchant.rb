@@ -3,11 +3,11 @@ class Merchant < ApplicationRecord
   has_many :invoice_items, through: :items
 
   delegate :total_revenue, to: :invoice_items
-  
+
   def self.top_merchants(quantity)
     select('merchants.*, SUM(quantity * invoice_items.unit_price) revenue')
-      .joins(items: { invoice_items: { invoice: :transactions } })
-      .where(invoices: { status: :shipped }, transactions: { result: :success })
+      .joins(items: { invoice_items: :invoice })
+      .merge(Invoice.completed)
       .group(:id)
       .order(revenue: :desc)
       .limit(quantity)
