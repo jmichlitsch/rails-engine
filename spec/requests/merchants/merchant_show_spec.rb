@@ -19,4 +19,16 @@ RSpec.describe 'get one merchant' do
     expect(merchant[:data].keys).to match_array(%i[id type attributes])
     expect(merchant[:data][:attributes].keys).to match_array(%i[name])
   end
+
+  it 'returns a 404 if record does not exist' do
+    get "/api/v1/merchants/1"
+
+    expect(response.status).to eq(404)
+  end
+
+  it 'returns a 404 if a non-integer is entered' do
+    get "/api/v1/merchants/one"
+
+    expect(response.status).to eq(404)
+  end
 end
