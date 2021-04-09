@@ -41,4 +41,14 @@ RSpec.describe "get all items for a merchant" do
     expect(items[:data]).to be_an(Array)
     expect(items[:data].count).to eq(0)
   end
+
+  it 'returns a 404 if merchant is not found' do
+    get "/api/v1/merchants/1/items"
+
+    expect(response.status).to eq(404)
+
+    get "/api/v1/merchants/one/items"
+
+    expect(response.status).to eq(404)
+  end
 end
