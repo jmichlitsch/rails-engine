@@ -26,4 +26,9 @@ class Api::V1::RevenueController < ApplicationController
     merchant = Merchant.find(params[:id])
     render json: MerchantRevenueSerializer.new(merchant)
   end
+
+  def unshipped
+    orders = Invoice.unshipped_orders(params[:quantity])
+    render json: RevenueSerializer.unshipped_orders(orders)
+  end
 end
