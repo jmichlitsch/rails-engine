@@ -32,6 +32,14 @@
           null
         ]
       },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/models/invoice_item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/models/invoice.rb": {
         "lines": [
           1,
@@ -39,6 +47,7 @@
           1,
           1,
           1,
+          null,
           1,
           null,
           1,
@@ -101,6 +110,14 @@
           1,
           1,
           null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
           null
         ]
       },
@@ -108,7 +125,8 @@
         "lines": [
           1,
           1,
-          1,
+          null,
+          null,
           null
         ]
       },
@@ -123,14 +141,6 @@
           7,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/models/invoice_item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null
         ]
       },
@@ -265,6 +275,6 @@
         ]
       }
     },
-    "timestamp": 1617906664
+    "timestamp": 1617935891
   }
 }

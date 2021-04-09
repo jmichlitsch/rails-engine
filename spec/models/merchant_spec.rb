@@ -47,5 +47,6 @@ RSpec.describe Merchant, type: :model do
         expect(merchants[3].revenue).to eq(3)
         expect(merchants[4].revenue).to eq(2)
       end
- end
+    end
+  end
 end
