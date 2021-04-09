@@ -13,17 +13,17 @@ class Invoice < ApplicationRecord
   def self.unshipped_orders(quantity)
     select('invoices.*, SUM(quantity * unit_price) AS potential_revenue')
       .joins(:invoice_items, :transactions)
-      .where(status: 'packaged', transactions: { result: 'success' })
+      .where(status: :packaged)
+      .merge(Transaction.successful)
       .group(:id)
       .order('potential_revenue' => :desc)
       .limit(quantity || 10)
   end
 
   def self.weekly_revenue
-    select("DATE_TRUNC('week', invoices.created_at) week, SUM(quantity * unit_price) revenue")
-      .joins(:invoice_items, :transactions)
-      .where(status: 'shipped', transactions: {result: 'success'})
-      .group('week')
-      .order('revenue' => :desc)
-    end
+    completed.select("DATE_TRUNC('week', invoices.created_at) week, SUM(quantity * unit_price) revenue")
+             .joins(:invoice_items)
+             .group(:week)
+             .order(:week)
+  end
 end

@@ -58,7 +58,7 @@
           1,
           1,
           null,
-          7,
+          8,
           null,
           1,
           5,
@@ -70,11 +70,11 @@
           null,
           null,
           null,
+          null,
           2,
           null,
           null,
           1,
-          null,
           null,
           null,
           null,
@@ -109,7 +109,7 @@
           null,
           null,
           null,
-          3,
+          8,
           null,
           null
         ]
@@ -128,7 +128,7 @@
           null,
           null,
           null,
-          2,
+          6,
           null,
           null,
           1,
@@ -147,7 +147,7 @@
           1,
           1,
           null,
-          7,
+          10,
           null
         ]
       },
@@ -155,11 +155,11 @@
         "lines": [
           1,
           1,
-          13,
+          20,
           null,
           null,
           1,
-          12,
+          19,
           null,
           null,
           null
@@ -241,7 +241,7 @@
           1,
           null,
           1,
-          7,
+          14,
           null,
           null,
           1,
@@ -303,8 +303,59 @@
           1,
           null
         ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/controllers/api/v1/revenue_controller.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          5,
+          5,
+          null,
+          null,
+          1,
+          5,
+          4,
+          4,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/item_revenue_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jeremiahmichlitsch/Turing/Mod_3/Projects/rails-engine/app/serializers/merchant_name_revenue_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1617938976
+    "timestamp": 1617939694
   }
 }

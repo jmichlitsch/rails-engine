@@ -60,14 +60,14 @@ RSpec.describe Invoice, type: :model do
         totals = Invoice.weekly_revenue
 
         expect(totals.to_a.size).to eq(4)
-        expect(totals[0].week).to eq("2021-02-22 00:00:00 UTC")
-        expect(totals[0].revenue).to eq(175.0)
-        expect(totals[1].week).to eq("2021-02-15 00:00:00 UTC")
-        expect(totals[1].revenue).to eq(126.0)
-        expect(totals[2].week).to eq("2021-02-08 00:00:00 UTC")
-        expect(totals[2].revenue).to eq(77.0)
-        expect(totals[3].week).to eq("2021-02-01 00:00:00 UTC")
-        expect(totals[3].revenue).to eq(28.0)
+        expect(totals[0].week).to eq("2021-02-01 00:00:00 UTC")
+        expect(totals[0].revenue).to eq(28.0)
+        expect(totals[1].week).to eq("2021-02-08 00:00:00 UTC")
+        expect(totals[1].revenue).to eq(77.0)
+        expect(totals[2].week).to eq("2021-02-15 00:00:00 UTC")
+        expect(totals[2].revenue).to eq(126.0)
+        expect(totals[3].week).to eq("2021-02-22 00:00:00 UTC")
+        expect(totals[3].revenue).to eq(175.0)
       end
     end
   end
