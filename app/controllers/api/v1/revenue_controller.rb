@@ -31,4 +31,9 @@ class Api::V1::RevenueController < ApplicationController
     orders = Invoice.unshipped_orders(params[:quantity])
     render json: RevenueSerializer.unshipped_orders(orders)
   end
+
+  def weekly
+    totals = Invoice.weekly_revenue
+    render json: RevenueSerializer.weekly_revenue(totals)
+  end
 end
