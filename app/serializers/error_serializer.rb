@@ -8,3 +8,4 @@ class ErrorSerializer
       error: @errors }
   end
 end
+   

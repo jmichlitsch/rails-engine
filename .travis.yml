@@ -1,0 +1,36 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+before_install:
+- gem install bundler:2.1.4
+- bundle update mimemagic
+- nvm install --lts
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: language: ruby
+    rbenv:
+    - 2.5.3
+    addons:
+      postgresql: 9.6
+    before_install:
+    - gem install bundler:2.1.4
+    - bundle update mimemagic
+    - nvm install --lts
+    script:
+    - bundle exec rails db:{create,migrate} RAILS_ENV=test
+    - bundle exec rspec
+    deploy:
+      provider: heroku
+      api_key:
+        secure: "lM+ddcxrDIqFQevPppfP+Osvc5zpGIFHiMzxlt+XZuxWH4ZiXM1F+ucsufBWsT8Vd3h4wsCfrUfO1x9UOnUtPTEnI5e7mdhd0IldjvziyhQOLsLJqS/JslrvvQwihCwwQpaCpVCEfbx3UNKkj7rbn44xWxccL8nbwhMY4aKLJdbNOP1baqVB7iZmY744B8C6Y0AiotdL12AsOFfqKcbMjbJK2j98dGwfaRgtQzrlrkQFAIzHD6HZLdGwRN0tKASJ5hDoGvmX+legc7l+RYoX0CtpUA74rQWm/De2o7EmuHsru7z66qwSQQSJxdSdgV2pnxThw7beilsXcZyEQVtzIbqxAhU3zmngBxiSmGBp5MczBwpDr2+yoSVRIymwqAN0Q8KdVvRHczhuG8g9KYTvCXR1R4esLWnzZOz/aM/tNRDgqCC+oo30e4QlqMFg5sT9cAqrMR7HtHzMAcPIhF+iq71xaP4P90eBH7wd+tCMuTdMlbujmWWsUJv7M+zE6rDRAq7Nc4qFFP5eX3WrTnDlMvZ/RqDNLXoxorlosnEi9AqlM6qQndoTBG6xhFM8rgzuyL0e737Cm6cdHVrWFCAES2M8o7Bmy2rEs4PhfnQXY9p0NMlY6Fe4zS2UKbefjZxAQ4RNFG5hhZH9ymoj0qorngEVfTrFySpjDWm+RQcOpVw="
+      app: calm-eyrie-54098
+      run: rails db:migrate
+
+  app: calm-eyrie-54098
+  run: rails db:migrate

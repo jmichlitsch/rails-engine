@@ -1,6 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
-
+ 
   def self.find_one_by_name(name)
     return nil if name.blank?
 
@@ -12,7 +12,7 @@ class ApplicationRecord < ActiveRecord::Base
 
     where('name ilike ?', "%#{name}%")
   end
-  
+
   def self.select_records(per_page, page)
     results = (per_page || 20).to_i
     skipped_pages = [page.to_i, 1].max - 1

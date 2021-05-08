@@ -8,7 +8,7 @@ RSpec.describe 'items search' do
         pants = create(:item, name: 'pants')
 
         get "/api/v1/items/find_all?name=shirt"
-
+ 
         expect(response).to be_successful
 
         items = JSON.parse(response.body, symbolize_names: true)
